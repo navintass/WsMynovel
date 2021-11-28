@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Mynovel" Class="Linq_dbDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=103.13.228.89;Initial Catalog=Mynovel;Persist Security Info=True;User ID=asujimaru" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="MynovelConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.product" Member="products">
+    <Type Name="product">
+      <Column Name="ida" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ProductName" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ProductIntro" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CreateBy" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CreateId" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ProductView" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ProductGroup" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ProductTypeSet" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ProductPrice" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="isPublish" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ImageUrl" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="EpCountPublised" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ProductRate" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ProductType" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="fanClubTranslate" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ProductPublisher" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="isCopyright" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="isAccept" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="EpLastUpdate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="isFinished" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserReadHistory" Member="UserReadHistories">
+    <Type Name="UserReadHistory">
+      <Column Name="ida" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EpId" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="EpName" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ProductId" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ProductName" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="createDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="userId" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LastRead" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProductBanner" Member="ProductBanners">
+    <Type Name="ProductBanner">
+      <Column Name="Ida" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FkProductId" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ImageUrl" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Type" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TypeSet" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Section" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.product_set" Member="product_sets">
+    <Type Name="product_set">
+      <Column Name="ida" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ProductName" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ProductIntro" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CreateBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CreateId" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ProductView" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ProductGroup" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ProductTypeSet" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ImageUrl" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="EpCountPublised" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>
