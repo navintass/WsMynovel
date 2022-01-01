@@ -51,6 +51,14 @@
             Next
         End Sub
 
+
+        Public Sub Getdata_byid_createId(ByVal id As String, ByVal create_id As String)
+            datas = (From q In db.products Where q.id = id And q.CreateId = create_id Select q)
+            For Each Me.fields In datas
+
+            Next
+        End Sub
+
         Public Sub GET_DATA_BY_CREATE_ID(ByVal id As String)
             datas = (From p In db.products Where p.isPublish = True And p.isAccept = True And p.CreateId = id Select p Order By p.ProductName Ascending)
             For Each Me.fields In datas

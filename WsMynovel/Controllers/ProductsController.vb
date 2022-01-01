@@ -48,7 +48,28 @@ Namespace Controllers
             Return Json("SUCCESS", JsonRequestBehavior.AllowGet)
         End Function
 
+        <HttpPost>
         Function DELETE_PRODUCT(ByVal model As String) As JsonResult
+            Dim MODEL_APP As New MODEL_APP
+            Dim jss As New JavaScriptSerializer
+            Dim dao As New DAO.tb_product
+            Try
+                MODEL_APP.PRODUCT = jss.Deserialize(JSON_CONVERT_DATE(model), GetType(product))
+                dao.Getdata_byid_createId(MODEL_APP.PRODUCT.id, MODEL_APP.PRODUCT.CreateId)
+                If dao.fields.ida <> 0 Then
+                    dao.fields.isAccept = False
+                    dao.update()
+                End If
+                Return Json("success", JsonRequestBehavior.AllowGet)
+            Catch ex As Exception
+                Return Json("error" + ex.ToString, JsonRequestBehavior.AllowGet)
+            End Try
+            Return Json("success", JsonRequestBehavior.AllowGet)
+        End Function
+
+
+        <HttpPost>
+        Function UPDATE_VIEW(ByVal model As String) As JsonResult
             Dim MODEL_APP As New MODEL_APP
             Dim jss As New JavaScriptSerializer
             Dim dao As New DAO.tb_product
@@ -56,8 +77,8 @@ Namespace Controllers
                 MODEL_APP.PRODUCT = jss.Deserialize(JSON_CONVERT_DATE(model), GetType(product))
                 dao.Getdata_byid(MODEL_APP.PRODUCT.id)
                 If dao.fields.ida <> 0 Then
-                    dao.fields.isAccept = MODEL_APP.PRODUCT.isAccept
-                    dao.delete()
+                    dao.fields.ProductView += 1
+                    dao.update()
                 End If
                 Return Json("success", JsonRequestBehavior.AllowGet)
             Catch ex As Exception
